@@ -1,22 +1,25 @@
+#program, which sort list different algorithm
+#wrote by Stupka Bogdan
 from random import randint,uniform
 import time as t
+#constants
 SIZE_MAS=100000
 MIN=0
 MAX=99
 print('This is program for sort list different algorithm')
-
+#main function
 def main():
     list_int=[]
     list_float=[]
     create_list(MIN,MAX,SIZE_MAS,list_int,list_float)
     print('int: ',list_int)
     print('float: ',list_float)
-
+	#dublicate list for each int lists
     list_selection_int=list_int[:]
     list_insertion_int=list_int[:]
     list_bubble_int=list_int[:]
     list_method_int=list_int[:]
-
+    #dublicate list for each float lists
     list_selection_float=list_float[:]
     list_insertion_float=list_float[:]
     list_bubble_float=list_float[:]
@@ -62,7 +65,7 @@ def main():
     bubble_sort(SIZE_MAS,list_bubble_float)
     time_bubble_float=t.time()-time_bubble_float
     print('bubble sort list is sorted correctly = true:\n',list_bubble_float)
-
+    #output result execute program 
     print('int sort method sort(): time =',time_method_int,'\nthe list is sorted correctly = true')
     print('float sort method sort(): time =',time_method_float,'\nthe list is sorted correctly = true')
     print('int selection sort: time =',time_selection_int,'\nthe list is sorted correctly = true')
@@ -83,7 +86,7 @@ def create_list(min_el,max_el,max_size,list_int_1,list_float_1):
         list_float_1.append(uniform(min_el,max_el))
     return;
 
-# #Sort lists of elements using the selection sort algorithm.
+#Sort lists of elements using the selection sort algorithm.
 def selection_sort(num_el,list_selection):
     for i in range(num_el):
         min_el=i
@@ -93,7 +96,7 @@ def selection_sort(num_el,list_selection):
         list_selection[i],list_selection[min_el]=list_selection[min_el],list_selection[i]
     return;
 
-# #Sort lists of elements using the insertion sort algorithm.
+#Sort lists of elements using the insertion sort algorithm.
 def insertion_sort(max_size,list_insertion):
     for i in range(max_size-1):
         for j in range(i,-1,-1):
@@ -102,6 +105,7 @@ def insertion_sort(max_size,list_insertion):
             else: break
     return;
 
+#Sort lists of elements using the buuble sort algorithm.
 def bubble_sort(max_size,list_bubble):
     for i in range(max_size):
         for j in range(max_size-1):
